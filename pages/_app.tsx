@@ -1,13 +1,18 @@
-import Navbar from '../components/navbar'
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { Navbar } from "../components";
+import "../styles/globals.css";
+import type { AppProps } from "next/app";
+
+import { UserContextProvider } from "../context";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-  <div className='bg-white min-h-screen'>
-    <Navbar />
-    <Component {...pageProps} />
-  </div>)
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      <UserContextProvider>
+        <Component {...pageProps} />
+      </UserContextProvider>
+    </div>
+  );
 }
 
-export default MyApp
+export default MyApp;
