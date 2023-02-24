@@ -1,41 +1,37 @@
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
+import Link from "next/link";
 
 export default function Navbar() {
   return (
     <>
-      <div className="fixed mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 z-50">
-        <div className="relative flex h-16 justify-between">
-          <div className="absolute inset-y-0 left-0 flex items-center">
-          </div>
-          <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-            <div className="flex flex-shrink-0 items-center">
+      <div className="fixed z-50 px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="relative flex justify-between h-16">
+          <div className="absolute inset-y-0 left-0 flex items-center"></div>
+          <div className="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
+            <div className="flex items-center flex-shrink-0">
               <img
-                className="block h-8 w-auto"
+                className="block w-auto h-8"
                 src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
                 alt="Your Company"
               />
             </div>
             <div className="ml-4 sm:ml-6 sm:flex sm:space-x-8">
               {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
-              <a
+              <Link
                 href="/leaderboard"
                 className="inline-flex items-center px-1 pt-1 text-sm font-medium text-gray-900"
               >
                 Leaderboard
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
       {/* Spacer */}
-      <div className='h-16 w-full'></div>
+      <div className="w-full h-16"></div>
     </>
-
-  )
+  );
 }
